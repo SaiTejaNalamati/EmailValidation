@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>EmailValidation</title>
+    <center><h1>Email Validation</h1></center><br></br>
+    <style>
+        #submit{
+            height: 30px;
+            align-items: center;
+            text-align: center;
+            display:flex;
+        }
+        #email{
+        height:40px;
+        width:250px;
+        text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label  style="font-weight: 900; font-size: 20px;">Enter Emaid id:</label><br></br>
+        <input type="email" id="email" placeholder="demo@demo.com" onkeyup="valid()"><span id="msg"></span></br></br>
+        <input type="submit" value="Submit" id="submit">
+    </form>
+    <script>
+        document.getElementById("submit").style.visibility="hidden";
+        const valid=()=>{
+                var val=document.getElementById("email").value;
+                let verify=/^\w+[a-zA-Z0-9\.-]+@([a-z])+(\.[a-z]{2,3})+$/g
+                let check=verify.test(val);
+                if(check==true){
+                    document.getElementById("msg").innerHTML="<img src='greentick.jpg' style='width:30px;'>";
+                    document.getElementById('submit').style.visibility = 'visible';
+                }
+                else if(val==""){
+                    document.getElementById("msg").innerHTML="";  
+                    document.getElementById('submit').style.visibility = 'hidden';
+                }
+                else{
+                    document.getElementById("msg").innerHTML="<img src='redtick.jpg' style='width:30px;'>";
+                    document.getElementById('submit').style.visibility = 'hidden';
+                }
+        }
+    </script>
+</body>
+</html>
